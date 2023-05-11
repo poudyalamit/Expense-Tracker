@@ -1,8 +1,7 @@
-const routes = require('express').Router();
-const controller=require('../Conroller/controller');
+const express=require('express')
+const router = express.Router()
+const controller=require('../Controller/Controller');
 
-routes.route('/api/categories')
-    .get(controller.create_Categories);
+router.get('/categories',controller.create_Categories);
 
-
-module.exports = routes;
+module.exports=router;
