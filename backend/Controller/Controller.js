@@ -1,8 +1,16 @@
+const model=require('../models/model');
 
+//post categories
+async function create_Categories(req,res){
+    const Create=new model.Categories({
+        type:"Savings",
+        color:"#1F3B5C", //dark
+    });
 
-//get categories
-function create_Categories(req,res){
-    res.json("send a hi")
+let output=await Create.save();
+res.json(output);
+console.log(output)
+
 }
 
 

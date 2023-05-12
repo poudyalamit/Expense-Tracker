@@ -10,7 +10,7 @@ app.use(cors());
 app.use(express.json());
 
 //using routes
-app.use('/api', require('./routes/route'));
+app.use('/api/categories', require('./routes/route'));
 
 //mongodb Connection
 const conn=require('./database/Connection');

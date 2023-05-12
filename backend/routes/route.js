@@ -2,6 +2,6 @@ const express=require('express')
 const router = express.Router()
 const controller=require('../Controller/Controller');
 
-router.get('/categories',controller.create_Categories);
+router.post('/create',controller.create_Categories);
 
 module.exports=router;
