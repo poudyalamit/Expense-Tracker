@@ -1,6 +1,6 @@
 import React from 'react'
 import { default as api } from '../store/apiSlice'
-
+import { getLables } from '../helper/helper'
 
 const Labels = () => {
 
@@ -9,7 +9,7 @@ const Labels = () => {
     if (isFetching) {
         Transaction = <div>Fetching</div>;
     } else if (isSuccess) {
-        Transaction = data.map((v, i) => <LabelComponent key={i} data={v} />)
+        Transaction = getLables(data,'type').map((v, i) => <LabelComponent key={i} data={v} />)
     } else if (isError) {
         Transaction = <div>Error</div>
     }
@@ -31,7 +31,7 @@ function LabelComponent({ data }) {
                 <div className="w-2 h-2 rounded py-3" style={{ background: data.color ?? "#f9c74f" }}></div>
                 <h3 className='text-md'>{data.type ?? ""}</h3>
             </div>
-            <h3 className='font-bold'>{data.percent ?? 0}%</h3>
+            <h3 className='font-bold'>{Math.round(data.percent) ?? 0}%</h3>
         </div>
     )
 }
